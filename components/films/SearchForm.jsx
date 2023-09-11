@@ -11,10 +11,10 @@ export default function SearchForm() {
     async function getFilms(text) {
         try {
             setError(null);
-            
+
             if (text == '') throw new Error('Вы не ввели название фильма!');
 
-            const response = await fetch('http://www.omdbapi.com/?apikey=53ce0bd4&s=' + text);
+            const response = await fetch('https://www.omdbapi.com/?apikey=53ce0bd4&s=' + text);
             if (!response.ok) throw new Error('fetch ' + response.status);
             let rezult = await response.json();
             setFilms(rezult.Search);
